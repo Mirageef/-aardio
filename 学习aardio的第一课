@@ -1,0 +1,69 @@
+ 
+
+为什么选择aardio？
+一、简单得像说话一样
+学编程最怕的就是复杂语法，而aardio给我的第一印象就是"亲切"。比如想在屏幕上显示"Hello, aardio!"，代码是这样的：
+
+import console; // 打开控制台工具箱
+console.log("Hello, aardio!"); // 让控制台说句话
+console.pause(true); // 刹车，别让窗口消失
+虽然不太懂import这些词，但连蒙带猜也能明白大概意思。就像把工具箱里的工具拿出来（import），然后用工具做事情（console.log）。
+
+再试了个计算两数之和的例子：
+
+var num1 = 5; // 盒子1装5
+var num2 = 3; // 盒子2装3
+var sum = num1 + num2; // 把两个盒子里的东西加起来
+console.log("和是: " + sum); // 告诉控制台结果
+这个过程和数学课上的加法一模一样，完全没有想象中的困难。
+
+二、小工具也有大能量
+别看aardio简单，它能做的事情可不少。比如用它做一个带按钮的窗口：
+
+import win.ui; // 打开窗口制作工具箱
+
+// 画一个窗口，里面放个按钮
+var winform = win.form(text="小窗口");
+winform.add(button={text="点我"});
+
+// 点击按钮会弹出提示
+winform.button.oncommand = function(){
+    win.msgbox("你点我啦！");
+}
+
+winform.show(); // 把窗口摆出来
+win.loopMessage(); // 让窗口一直等着用户操作
+运行后真的出现了一个窗口！点击按钮还会弹出提示框，这感觉就像在玩积木，把不同的功能块拼起来就能做出软件。
+
+更神奇的是，它还能直接在程序里显示网页：
+
+import win.ui;
+import web.view; // 浏览器控件工具箱
+
+var winform = win.form(text="迷你浏览器");
+var wb = web.view(winform); // 在窗口里放个浏览器
+wb.go("https://example.com"); // 打开示例网页
+
+winform.show();
+win.loopMessage();
+运行后，窗口里直接加载了网页，还能滚动浏览。这可比想象中容易多了！
+
+三、效率高到像开跑车
+学编程最头疼的就是重复造轮子，而aardio自带了很多现成的工具。比如存文件只需要两行代码：
+
+string.save("note.txt", "这是我的笔记"); // 存文件
+var content = string.load("note.txt"); // 读文件
+console.log(content); // 显示内容
+连我都能看懂，直接把"这是我的笔记"存进note.txt，再读出来显示。要是用其他语言，可能得写十几行代码。
+
+还有网络请求，几行代码就能拿到网页内容：
+
+import curl; // 网络请求工具箱
+var response = curl.easy().get("https://www.baidu.com"); // 把百度首页内容抓下来
+console.log(response); // 显示网页代码
+运行后控制台密密麻麻都是HTML代码，感觉自己像黑客一样（虽然还不懂这些代码啥意思）。
+
+学习心得
+虽然才学了一天，但aardio给我的感觉就像一个友好的伙伴。它没有复杂的语法，反而像搭积木一样轻松。每写出一个能运行的小例子，都特别有成就感。虽然还有很多不懂的地方，但至少现在不会一看到代码就头大了。明天继续挑战那个窗口程序，加油！
+
+ 
